@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+
+
+def configs = rootProject.ext.android //android配置拿取config
+def thirdPartyDependencies = rootProject.ext.thirdPartyDependencies
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+android {
+    compileSdkVersion configs.compileSdkVersion
+    buildToolsVersion configs.buildToolsVersion
+
+    /*DataBinding 视图绑定开启*/
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        minSdkVersion configs.minSdkVersion
+        targetSdkVersion configs.targetSdkVersion
+        versionCode configs.versionCode
+        versionName configs.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'proguard-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api thirdPartyDependencies.multidex
+    api thirdPartyDependencies.appcompat
+    api thirdPartyDependencies.immersionbar
+    api thirdPartyDependencies.immersionbar_components
+    api thirdPartyDependencies.eventbus
+    api thirdPartyDependencies.utilcode
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
