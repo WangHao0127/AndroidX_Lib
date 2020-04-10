@@ -19,3 +19,16 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#需要解决的问题
+# 主项目与module的混淆，及其规则
+# debug与release的签名
+# dataBinding的实际应用
+# ViewModel 与 LiveData的实际应用,并且结合dataBinding实现ui数据绑定与刷新
+#
+#
+#
+#
+#
+#
+

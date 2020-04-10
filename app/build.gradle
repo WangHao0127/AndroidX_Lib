@@ -2,6 +2,37 @@ apply plugin: 'com.android.application'
 
 def configs = rootProject.ext.android //android配置拿取config
 
+def RELEASE_KEY_ALIAS = ''
+def RELEASE_KEY_PWD = ''
+def RELEASE_KEY_STORE_FILE_PATH = ''
+def RELEASE_KEY_STORE_PWD = ''
+
+static def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("GMT+08"))
+}
+
+def apkFileName(variant, versionName) {
+    return "${rootProject.name}-${variant.flavorName}-${variant.buildType.name}-v${versionName}-${releaseTime()}.apk"
+}
+
+task loadSignConfig {
+    File keystorePropertyFile = new File(rootDir.getAbsolutePath() + "/keystore.properties")
+    if (keystorePropertyFile.exists()) {
+        Properties properties = new Properties()
+        properties.load(keystorePropertyFile.newDataInputStream())
+
+        RELEASE_KEY_ALIAS = properties.getProperty('RELEASE_KEY_ALIAS')
+        RELEASE_KEY_PWD = properties.getProperty('RELEASE_KEY_PWD')
+        RELEASE_KEY_STORE_FILE_PATH = rootDir.getAbsolutePath() + properties.getProperty('RELEASE_KEY_STORE_FILE_PATH')
+        RELEASE_KEY_STORE_PWD = properties.getProperty('RELEASE_KEY_STORE_PWD')
+    } else {
+        RELEASE_KEY_ALIAS = System.getenv('RELEASE_KEY_ALIAS')
+        RELEASE_KEY_PWD = System.getenv('RELEASE_KEY_PWD')
+        RELEASE_KEY_STORE_FILE_PATH = System.getenv('RELEASE_KEY_STORE_FILE_PATH')
+        RELEASE_KEY_STORE_PWD = System.getenv('RELEASE_KEY_STORE_PWD')
+    }
+}
+
 android {
     compileSdkVersion configs.compileSdkVersion
     buildToolsVersion configs.buildToolsVersion
@@ -31,24 +62,78 @@ android {
 
     }
 
+    signingConfigs {
+        debug {
+            keyAlias "AndroidLibrary"
+            keyPassword "android"
+            storeFile file("../keystore/debug.jks")
+            storePassword "123456"
+        }
+        release {
+            loadSignConfig
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PWD
+            storeFile file("../keystore/LibraryKey.jks")
+            storePassword RELEASE_KEY_STORE_PWD
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-project.txt'
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles fileTree(dir: '../proguards', include: ['*.pro']).asList().toArray()
+
+            signingConfig signingConfigs.release
+            matchingFallbacks = ['release']
         }
+        debug {
+            minifyEnabled false
+            applicationIdSuffix = ".debug"
+            matchingFallbacks = ['debug']
+        }
+        // 开发环境
+        stagingDebug {
+            initWith debug
+
+            // API基地址
+            buildConfigField("String", "BASE_URL", "\"http://${config.APP_BASE_URL}/data/sk/\"")
+        }
+
+        stagingRelease {
+            initWith release
+
+            // API基地址
+            buildConfigField("String", "BASE_URL", "\"http://${config.APP_BASE_URL}/data/sk/\"")
+        }
+    }
+
+    flavorDimensions "env"
+    productFlavors {
+        // 开发
+        develop {}
+        // 官网
+//        offical {}
+    }
+
+    // 渠道号
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [APP_CHANNEL_VALUE: name]
     }
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
-
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     api project(':baselib')
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }

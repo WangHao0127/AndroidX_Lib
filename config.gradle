@@ -29,10 +29,11 @@ ext {
 
     // Test
     tests = [
-
     ]
 
     netDependencies = [
+            //ViewModel与LiveData
+            lifecycle: 'androidx.lifecycle:lifecycle-extensions:2.0.0',
 
     ]
 

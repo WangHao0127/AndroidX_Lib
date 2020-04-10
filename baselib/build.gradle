@@ -3,6 +3,7 @@ apply plugin: 'com.android.library'
 
 def configs = rootProject.ext.android //android配置拿取config
 def thirdPartyDependencies = rootProject.ext.thirdPartyDependencies
+def netDependencies = rootProject.ext.netDependencies
 
 buildscript {
     repositories {
@@ -49,7 +50,5 @@ dependencies {
     api thirdPartyDependencies.eventbus
     api thirdPartyDependencies.utilcode
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    api netDependencies.lifecycle
 }

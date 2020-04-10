@@ -1,14 +1,17 @@
 package com.android.lib.ui;
 
-import android.view.View;
-
 import com.android.baselib.BR;
 import com.android.baselib.data.AppBarData;
 import com.android.baselib.ui.BaseActivity;
+import com.android.baselib.util.VMUtils;
 import com.android.lib.R;
 import com.android.lib.data.ObservableUser;
 import com.android.lib.databinding.ActivityMainBinding;
+import com.android.lib.viewmodel.MainViewModel;
+
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
+
+     MainViewModel mModel;
 
     @Override
     protected int getLayoutId() {
@@ -17,18 +20,30 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected void initViewsAndEvents() {
-        ObservableUser observableUser =new ObservableUser("wanghao","是的吧衰减大");
+        databindingDemo();
+        viewModelDemo();
+    }
+
+    private void viewModelDemo() {
+        mModel= (MainViewModel) VMUtils.obtainViewModel(this,MainViewModel.class);
+
+        //将ViewModel与DataBinding绑定
+        mBinding.setUserData(mModel);
+        //让xml内绑定的LiveData和Observer建立连接，数据改变，UI自动会更新
+        mBinding.setLifecycleOwner(this);
+    }
+
+    private void databindingDemo() {
         AppBarData barData =new AppBarData("首页","",R.drawable.icon_back);
-        mBinding.setObservableUser(observableUser);
         mBinding.setVariable(BR.appBar,barData);
 
-        mBinding.setClick1(v -> {
-            observableUser.like.set("我喜欢打篮球");
-            observableUser.name.set("王浩");
-        });
+        mBinding.setClick1(v -> mModel.getUserData());
+
         mBinding.setClick2(v->{
-            observableUser.like.set("我喜欢打篮球2");
-            observableUser.name.set("王浩2");
+//            ObservableUser observableUser =new ObservableUser("","");
+//            observableUser.like.set("我喜欢打篮球2");
+//            observableUser.name.set("王浩2");
         });
     }
+
 }

@@ -2,8 +2,8 @@
 <layout >
     <data>
         <variable
-            name="observableUser"
-            type="com.android.lib.data.ObservableUser"/>
+            name="userData"
+            type="com.android.lib.viewmodel.MainViewModel"/>
         <variable
             name="appBar"
             type="com.android.baselib.data.AppBarData" />
@@ -22,25 +22,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/common_app_bar"
+        <include
+            android:id="@+id/include"
+            layout="@layout/common_app_bar"
             app:appBar="@{appBar}"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{observableUser.name}"
+            android:text="@{userData.users.name}"
             android:textSize="40sp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{observableUser.like}"
+            android:text="@{userData.users.like}"
             android:textSize="40sp"
             />
         <!--加个=，双向绑定-->
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={observableUser.name}"/>
+            android:text="@={userData.users.name}"/>
 
         <Button
             android:id="@+id/btn"
