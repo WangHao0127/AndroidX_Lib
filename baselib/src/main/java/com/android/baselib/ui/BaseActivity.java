@@ -109,11 +109,6 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCom
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
     protected TransitionMode getTransitionMode() {
         return TransitionMode.NONE;
     }

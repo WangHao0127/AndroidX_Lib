@@ -55,6 +55,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
+        createBinding();
+
         /*getBundleExtras*/
         Bundle extras = getIntent().getExtras();
         if (null != extras) {
@@ -79,7 +81,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
             onNavigateClick();
         }
 
-        createBinding();
         initViewsAndEvents();
     }
 

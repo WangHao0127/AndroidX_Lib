@@ -1,4 +1,4 @@
-package com.android.baselib.ui;
+package com.android.baselib.bindingutil;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;

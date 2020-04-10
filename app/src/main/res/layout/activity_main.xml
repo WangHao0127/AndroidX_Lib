@@ -2,11 +2,17 @@
 <layout >
     <data>
         <variable
-            name="user"
-            type="com.android.lib.data.User"/>
+            name="observableUser"
+            type="com.android.lib.data.ObservableUser"/>
         <variable
             name="appBar"
             type="com.android.baselib.data.AppBarData" />
+        <variable
+            name="click1"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="click2"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <LinearLayout
@@ -21,14 +27,34 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.name}"
+            android:text="@{observableUser.name}"
             android:textSize="40sp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.like}"
+            android:text="@{observableUser.like}"
             android:textSize="40sp"
+            />
+        <!--加个=，双向绑定-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={observableUser.name}"/>
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新数据"
+            android:onClick="@{click1}"
+            />
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新数据2"
+            android:onClick="@{click2}"
             />
     </LinearLayout>
 
