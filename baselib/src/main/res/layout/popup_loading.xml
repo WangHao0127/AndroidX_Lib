@@ -16,7 +16,7 @@
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <com.android.baselibrary.weight.ProgressWheel
+            <com.android.baselib.weight.ProgressWheel
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_horizontal"

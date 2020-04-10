@@ -1,19 +1,29 @@
 package com.android.baselib.ui;
 
 import android.app.Dialog;
-import android.view.LayoutInflater;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.baselib.R;
 import com.android.baselib.base.BaseAppCompatActivity;
 import com.android.baselib.data.EventBusData;
+import com.android.baselib.event.BaseActionEvent;
+import com.android.baselib.viewmodel.IViewModelAction;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.Observer;
+import com.blankj.utilcode.util.ToastUtils;
 
 /**
  * Author: WangHao
@@ -29,6 +39,57 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCom
     @Override
     protected void createBinding() {
         mBinding = DataBindingUtil.setContentView(this,getLayoutId());
+    }
+
+    protected abstract AndroidViewModel initViewModel();
+
+    protected List<AndroidViewModel> initViewModelList(){
+        return null;
+    }
+
+    @Override
+    protected void initViewModelEvent(){
+        List<AndroidViewModel> viewModelList = initViewModelList();
+        if (viewModelList !=null && viewModelList.size() >0){
+            observeEvent(viewModelList);
+        }else{
+            AndroidViewModel model= initViewModel();
+            if (model!=null){
+                List<AndroidViewModel> modelList = new ArrayList<>();
+                modelList.add(model);
+                observeEvent(modelList);
+            }
+        }
+    }
+
+    private void observeEvent(List<AndroidViewModel> viewModelList){
+        for (AndroidViewModel viewModel : viewModelList) {
+            if (viewModel instanceof IViewModelAction) {
+                IViewModelAction viewModelAction = (IViewModelAction) viewModel;
+                viewModelAction.getActionLiveData().observe(this,
+                    baseActionEvent -> {
+                        if (baseActionEvent!=null){
+                            switch (baseActionEvent.getAction()){
+                                case BaseActionEvent.SHOW_LOADING_DIALOG:
+                                    showLoading(baseActionEvent.getMessage());
+                                    break;
+                                case BaseActionEvent.DISMISS_LOADING_DIALOG:
+                                    hideLoading();
+                                    break;
+                                case BaseActionEvent.SHOW_TOAST:
+                                    ToastUtils.showShort(baseActionEvent.getMessage());
+                                    break;
+                                case BaseActionEvent.FINISH:
+                                    finish();
+                                    break;
+                                case BaseActionEvent.FINISH_WITH_RESULT_OK:
+                                    setResult(RESULT_OK);
+                                    break;
+                            }
+                        }
+                    });
+            }
+        }
     }
 
     @Override
@@ -70,16 +131,23 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCom
     }
 
     public synchronized void hideLoading() {
-        if (loadingPop != null) {
+        if (loadingPop != null && loadingPop.isShowing()) {
             loadingPop.dismiss();
         }
     }
 
-    public synchronized void showLoading() {
+    private synchronized void showLoading() {
+        showLoading(null);
+    }
+
+    public synchronized void showLoading(String message) {
         if (loadingPop == null) {
             loadingPop = new Dialog(this, R.style.NoTitleDialogStyle);
             loadingPop.setContentView(R.layout.popup_loading);
             loadingPop.setCanceledOnTouchOutside(false);
+
+            TextView title = loadingPop.findViewById(R.id.pl_content_txt);
+            title.setText(message);
         }
         loadingPop.show();
     }
@@ -96,21 +164,18 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCom
 
     @Override
     protected boolean isOverridePendingTransition() {
-        return false;
+        return true;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        if (loadingPop != null && loadingPop.isShowing()) {
-            loadingPop.dismiss();
-        }
+        hideLoading();
     }
 
     @Override
     protected TransitionMode getTransitionMode() {
-        return TransitionMode.NONE;
+        return TransitionMode.FADE;
     }
 
     @Override

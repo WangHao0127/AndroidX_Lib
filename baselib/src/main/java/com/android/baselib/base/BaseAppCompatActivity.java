@@ -80,7 +80,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
             setCustomTitle(getTitle());
             onNavigateClick();
         }
-
+        initViewModelEvent();
         initViewsAndEvents();
     }
 
@@ -237,6 +237,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    protected abstract void initViewModelEvent();
 
     protected abstract void createBinding();
 

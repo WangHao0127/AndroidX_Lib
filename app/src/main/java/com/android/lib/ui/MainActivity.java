@@ -5,13 +5,14 @@ import com.android.baselib.data.AppBarData;
 import com.android.baselib.ui.BaseActivity;
 import com.android.baselib.util.VMUtils;
 import com.android.lib.R;
-import com.android.lib.data.ObservableUser;
 import com.android.lib.databinding.ActivityMainBinding;
 import com.android.lib.viewmodel.MainViewModel;
 
+import androidx.lifecycle.AndroidViewModel;
+
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
-     MainViewModel mModel;
+    MainViewModel mModel;
 
     @Override
     protected int getLayoutId() {
@@ -25,7 +26,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     }
 
     private void viewModelDemo() {
-        mModel= (MainViewModel) VMUtils.obtainViewModel(this,MainViewModel.class);
+
 
         //将ViewModel与DataBinding绑定
         mBinding.setUserData(mModel);
@@ -43,7 +44,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 //            ObservableUser observableUser =new ObservableUser("","");
 //            observableUser.like.set("我喜欢打篮球2");
 //            observableUser.name.set("王浩2");
+            mModel.queryWeather(mBinding.edit.getText().toString());
         });
     }
 
+    @Override
+    protected AndroidViewModel initViewModel() {
+        mModel= (MainViewModel) VMUtils.obtainViewModel(this,MainViewModel.class);
+        return null;
+    }
 }
