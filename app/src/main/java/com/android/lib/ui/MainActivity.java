@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
 
         //将ViewModel与DataBinding绑定
-        mBinding.setUserData(mModel);
+        mBinding.setMainData(mModel);
         //让xml内绑定的LiveData和Observer建立连接，数据改变，UI自动会更新
         mBinding.setLifecycleOwner(this);
     }
