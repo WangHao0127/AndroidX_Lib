@@ -32,3 +32,7 @@
 #
 #
 
+
+#Android进阶问题
+# Android触摸事件传递机制（分发，拦截，消费）
+# JUnit4+Mockito+PowerMock+Robolectric (Android单元测试 https://www.jianshu.com/p/aa51a3e007e2)

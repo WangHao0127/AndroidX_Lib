@@ -19,29 +19,32 @@ ext {
 
     // Support Libraries
     supportDependencies = [
+            multidex : "androidx.multidex:multidex:2.0.0",
 
+            appcompat: "androidx.appcompat:appcompat:1.1.0",
     ]
 
     // Support Constraints
     constraints = [
-
+            constraintlayout: "androidx.constraintlayout:constraintlayout:1.1.3"
     ]
 
     // Test
     tests = [
+            junit          : "junit:junit:4.12",
+            test_junit     : "androidx.test.ext:junit:1.1.1",
+            mockito_core   : "org.mockito:mockito-core:2.+",
+            mockito_android: "org.mockito:mockito-android:2.7.22",
+            robolectric    : "org.robolectric:robolectric:3.8"
     ]
 
     netDependencies = [
             //ViewModel与LiveData
-            lifecycle: 'androidx.lifecycle:lifecycle-extensions:2.0.0',
+            lifecycle: "androidx.lifecycle:lifecycle-extensions:2.0.0",
 
     ]
 
     thirdPartyDependencies = [
-            multidex               : 'androidx.multidex:multidex:2.0.0',
-
-            appcompat              : "androidx.appcompat:appcompat:1.1.0",
-
             /*沉浸式状态栏 https://github.com/gyf-dev/ImmersionBar*/
             immersionbar           : "com.gyf.immersionbar:immersionbar:3.0.0",
             /*fragment快速实现（可选）*/

@@ -1,9 +1,11 @@
 apply plugin: 'com.android.library'
 
-
 def configs = rootProject.ext.android //android配置拿取config
 def thirdPartyDependencies = rootProject.ext.thirdPartyDependencies
 def netDependencies = rootProject.ext.netDependencies
+def supportDependencies = rootProject.ext.supportDependencies
+def tests = rootProject.ext.tests
+def constraints = rootProject.ext.constraints
 
 buildscript {
     repositories {
@@ -46,12 +48,22 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api thirdPartyDependencies.multidex
-    api thirdPartyDependencies.appcompat
+    testImplementation tests.junit
+    androidTestImplementation tests.test_junit
+    testImplementation tests.mockito_core
+    androidTestImplementation tests.mockito_android
+    testImplementation tests.robolectric
+
+    api constraints.constraintlayout
+
+    api supportDependencies.multidex
+    api supportDependencies.appcompat
+
     api thirdPartyDependencies.immersionbar
     api thirdPartyDependencies.immersionbar_components
     api thirdPartyDependencies.eventbus
     api thirdPartyDependencies.utilcode
 
     api netDependencies.lifecycle
+
 }

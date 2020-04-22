@@ -27,7 +27,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private void viewModelDemo() {
 
-
         //将ViewModel与DataBinding绑定
         mBinding.setMainData(mModel);
         //让xml内绑定的LiveData和Observer建立连接，数据改变，UI自动会更新
@@ -53,4 +52,5 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mModel= (MainViewModel) VMUtils.obtainViewModel(this,MainViewModel.class);
         return null;
     }
+
 }
