@@ -1,5 +1,7 @@
 package com.android.lib;
 
+import android.accounts.NetworkErrorException;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -18,5 +20,9 @@ public class ExampleUnitTest {
         int sum = 2 + 2;
         System.out.println("结果为：" + sum);
         assertEquals(4, sum);
+
     }
+
+
+
 }

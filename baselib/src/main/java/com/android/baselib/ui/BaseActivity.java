@@ -1,14 +1,13 @@
 package com.android.baselib.ui;
 
 import android.app.Dialog;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.baselib.R;
 import com.android.baselib.base.BaseAppCompatActivity;
+import com.android.baselib.base.BaseLibApplication;
 import com.android.baselib.data.EventBusData;
 import com.android.baselib.event.BaseActionEvent;
 import com.android.baselib.viewmodel.IViewModelAction;
@@ -18,15 +17,14 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.Observer;
 import com.blankj.utilcode.util.ToastUtils;
+import com.squareup.leakcanary.RefWatcher;
 
 /**
- * Author: WangHao
+ * @author: WangHao
  * Created On: 2020/04/08  14:22
  * Description:
  */
@@ -171,6 +169,8 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCom
     protected void onDestroy() {
         super.onDestroy();
         hideLoading();
+        RefWatcher refWatcher = BaseLibApplication.getRefWatcher(this);
+        refWatcher.watch(this);
     }
 
     @Override

@@ -63,6 +63,8 @@ dependencies {
     api thirdPartyDependencies.immersionbar_components
     api thirdPartyDependencies.eventbus
     api thirdPartyDependencies.utilcode
+    api thirdPartyDependencies.leakcanary
+    api thirdPartyDependencies.leakcanary_no_op
 
     api netDependencies.lifecycle
 

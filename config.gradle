@@ -55,5 +55,10 @@ ext {
 
             /*万能工具类  https://www.jianshu.com/p/910aeb1d7b47*/
             utilcode               : "com.blankj:utilcode:1.20.4",
+
+            /*LeakCanary 内存泄漏监测*/
+            leakcanary :"com.squareup.leakcanary:leakcanary-android:1.5.2",
+            leakcanary_no_op :"com.squareup.leakcanary:leakcanary-android-no-op:1.5.2"
+
     ]
 }
