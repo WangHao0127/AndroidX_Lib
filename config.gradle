@@ -20,8 +20,8 @@ ext {
     // Support Libraries
     supportDependencies = [
             multidex : "androidx.multidex:multidex:2.0.0",
-
             appcompat: "androidx.appcompat:appcompat:1.1.0",
+            design:"com.google.android.material:material:1.0.0-rc01"
     ]
 
     // Support Constraints
@@ -53,12 +53,12 @@ ext {
             /*event bus  https://github.com/greenrobot/EventBus*/
             eventbus               : "org.greenrobot:eventbus:3.2.0",
 
-            /*万能工具类  https://www.jianshu.com/p/910aeb1d7b47*/
-            utilcode               : "com.blankj:utilcode:1.20.4",
+            /*万能工具类  https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md */
+            utilcode               : "com.blankj:utilcodex:1.28.3",
 
             /*LeakCanary 内存泄漏监测*/
-            leakcanary :"com.squareup.leakcanary:leakcanary-android:1.5.2",
-            leakcanary_no_op :"com.squareup.leakcanary:leakcanary-android-no-op:1.5.2"
+            leakcanary :"com.squareup.leakcanary:leakcanary-android:1.5.4",
+            leakcanary_no_op :"com.squareup.leakcanary:leakcanary-android-no-op:1.5.4"
 
     ]
 }

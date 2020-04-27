@@ -1,7 +1,5 @@
 package com.android.lib.ui;
 
-import android.os.Bundle;
-
 import com.android.baselib.ui.BaseActivity;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityFristInBinding;
@@ -22,6 +20,11 @@ public class FirstInActivity extends BaseActivity<ActivityFristInBinding> {
 
     @Override
     protected void initViewsAndEvents() {
-        mBinding.setOnClick1(c -> go(MainActivity.class));
+        mBinding.setOnClick1(c ->
+            go(MainActivity.class)
+        );
+        mBinding.setOnClick2(c ->
+            go(TestSnackbarUtilsActivity.class));
     }
+
 }

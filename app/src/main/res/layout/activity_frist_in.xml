@@ -6,7 +6,9 @@
         <variable
             name="onClick1"
             type="android.view.View.OnClickListener" />
-
+        <variable
+            name="onClick2"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,6 +25,13 @@
             android:layout_height="wrap_content"
             android:text="viewModel+dataBinding的简单应用"
             android:onClick="@{onClick1}"
+            />
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Snackbar的应用"
+            android:onClick="@{onClick2}"
             />
     </LinearLayout>
 </layout>

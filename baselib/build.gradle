@@ -58,13 +58,14 @@ dependencies {
 
     api supportDependencies.multidex
     api supportDependencies.appcompat
+    api supportDependencies.design
 
     api thirdPartyDependencies.immersionbar
     api thirdPartyDependencies.immersionbar_components
     api thirdPartyDependencies.eventbus
     api thirdPartyDependencies.utilcode
-    api thirdPartyDependencies.leakcanary
-    api thirdPartyDependencies.leakcanary_no_op
+    debugApi thirdPartyDependencies.leakcanary
+    releaseApi thirdPartyDependencies.leakcanary_no_op
 
     api netDependencies.lifecycle
 

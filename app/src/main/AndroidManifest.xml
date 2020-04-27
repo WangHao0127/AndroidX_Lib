@@ -26,7 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".ui.MainActivity"></activity>
+        <activity android:name=".ui.TestSnackbarUtilsActivity"></activity>
+        <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.FirstInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

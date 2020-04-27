@@ -25,7 +25,7 @@
 # debug与release的签名
 # dataBinding的实际应用
 # ViewModel 与 LiveData的实际应用,并且结合dataBinding实现ui数据绑定与刷新
-#
+# Snackbar替代Toast (SbUtil)
 #
 #
 #

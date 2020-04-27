@@ -175,7 +175,7 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCom
 
     @Override
     protected TransitionMode getTransitionMode() {
-        return TransitionMode.FADE;
+        return TransitionMode.SCALE;
     }
 
     @Override
