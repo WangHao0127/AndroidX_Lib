@@ -33,12 +33,12 @@ public class ImageViewAdapter {
     }
 
 
-    @BindingAdapter({"app:imageUrl", "app:placeHolder", "app:error"})
+   /* @BindingAdapter({"app:imageUrl", "app:placeHolder", "app:error"})
     public static void loadImage(ImageView imageView, String url, Drawable holderDrawable, Drawable errorDrawable) {
 //        Glide.with(imageView.getContext())
 //            .load(url)
 //            .placeholder(holderDrawable)
 //            .error(errorDrawable)
 //            .into(imageView);
-    }
+    }*/
 }

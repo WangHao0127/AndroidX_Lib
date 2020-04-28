@@ -36,23 +36,23 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCom
 
     @Override
     protected void createBinding() {
-        mBinding = DataBindingUtil.setContentView(this,getLayoutId());
+        mBinding = DataBindingUtil.setContentView(this, getLayoutId());
     }
 
     protected abstract AndroidViewModel initViewModel();
 
-    protected List<AndroidViewModel> initViewModelList(){
+    protected List<AndroidViewModel> initViewModelList() {
         return null;
     }
 
     @Override
-    protected void initViewModelEvent(){
+    protected void initViewModelEvent() {
         List<AndroidViewModel> viewModelList = initViewModelList();
-        if (viewModelList !=null && viewModelList.size() >0){
+        if (viewModelList != null && viewModelList.size() > 0) {
             observeEvent(viewModelList);
-        }else{
-            AndroidViewModel model= initViewModel();
-            if (model!=null){
+        } else {
+            AndroidViewModel model = initViewModel();
+            if (model != null) {
                 List<AndroidViewModel> modelList = new ArrayList<>();
                 modelList.add(model);
                 observeEvent(modelList);
@@ -60,14 +60,14 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCom
         }
     }
 
-    private void observeEvent(List<AndroidViewModel> viewModelList){
+    private void observeEvent(List<AndroidViewModel> viewModelList) {
         for (AndroidViewModel viewModel : viewModelList) {
             if (viewModel instanceof IViewModelAction) {
                 IViewModelAction viewModelAction = (IViewModelAction) viewModel;
                 viewModelAction.getActionLiveData().observe(this,
                     baseActionEvent -> {
-                        if (baseActionEvent!=null){
-                            switch (baseActionEvent.getAction()){
+                        if (baseActionEvent != null) {
+                            switch (baseActionEvent.getAction()) {
                                 case BaseActionEvent.SHOW_LOADING_DIALOG:
                                     showLoading(baseActionEvent.getMessage());
                                     break;

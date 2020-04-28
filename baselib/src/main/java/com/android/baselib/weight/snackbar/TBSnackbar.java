@@ -533,7 +533,7 @@ public final class TBSnackbar {
 
         } else {
             changeLayoutParams(Gravity.TOP);
-            if (mStyle == STYLE_SHOW_TOP_FITSYSTEMWINDOW || mStyle == STYLE_SHOW_TOP) {
+            if (mStyle == STYLE_SHOW_TOP_FITSYSTEMWINDOW) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     mView.setPadding(0, getStatusBarHeight(mContext), 0, 0);
                 }

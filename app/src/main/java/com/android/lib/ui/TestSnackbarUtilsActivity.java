@@ -21,22 +21,21 @@ public class TestSnackbarUtilsActivity extends
 
     @Override
     protected void initViewsAndEvents() {
-
         mBinding.setClick1(c ->
-            SbUtil.showCustomTop(c, "This is a top snack!")
+            SbUtil.showCustomTop(mBinding.coordinator, "This is a top snack!")
         );
         mBinding.setClick2(c ->
-            SbUtil.showCustomBOTTOM(c, "This is a bottom snack!")
+            SbUtil.showCustomBOTTOM(mBinding.coordinator, "This is a bottom snack!")
         );
         mBinding.setClick3(c -> {
             SbUtil.showCustomWindow(this, "This is a fitsystemwindow snack!");
         });
         mBinding.setClick4(
-            c -> SbUtil.showIconLeft(c, "This is a left icon snack!", R.mipmap.ic_launcher));
+            c -> SbUtil.showIconLeft(mBinding.coordinator, "This is a left icon snack!", R.mipmap.ic_launcher));
 
         mBinding.setClick5(c -> {
                 final TBSnackbar snackbar = TBSnackbar
-                    .make(c, "This is a action snack!",
+                    .make(mBinding.coordinator, "This is a action snack!",
                         TBSnackbar.LENGTH_INDEFINITE, TBSnackbar.STYLE_SHOW_TOP);
                 snackbar.setAction("Action", new View.OnClickListener() {
                     @Override
