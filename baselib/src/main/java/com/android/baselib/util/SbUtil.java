@@ -7,7 +7,6 @@ import android.view.View;
 import com.android.baselib.weight.snackbar.TBSnackbar;
 
 import androidx.annotation.DrawableRes;
-import androidx.annotation.RequiresApi;
 
 /**
  * Author: WangHao

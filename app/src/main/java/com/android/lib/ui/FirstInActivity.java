@@ -24,7 +24,7 @@ public class FirstInActivity extends BaseActivity<ActivityFristInBinding> {
             go(MainActivity.class)
         );
         mBinding.setOnClick2(c ->
-            go(TestSnackbarUtilsActivity.class));
+            go(DesignSupportActivity.class));
     }
 
 }

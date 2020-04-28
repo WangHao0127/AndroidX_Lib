@@ -10,7 +10,11 @@ import com.android.lib.R;
 import com.android.lib.databinding.ActivityTestSnackbarUtilsBinding;
 
 import androidx.lifecycle.AndroidViewModel;
-
+/**
+ * Author: WangHao
+ * Created On: 2020/04/27  16:16
+ * Description: Snackbar 的使用
+ */
 public class TestSnackbarUtilsActivity extends
     BaseActivity<ActivityTestSnackbarUtilsBinding> {
 
