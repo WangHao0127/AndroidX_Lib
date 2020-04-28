@@ -1,16 +1,22 @@
 package com.android.lib.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.AndroidViewModel;
 import com.blankj.utilcode.util.RegexUtils;
 
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
+import android.widget.TableLayout;
 
 import com.android.baselib.ui.BaseActivity;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityTextInputBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author: WangHao
@@ -25,6 +31,11 @@ public class TextInputActivity extends BaseActivity<ActivityTextInputBinding> {
     }
 
     @Override
+    protected boolean isStatusBarOverlap() {
+        return true;
+    }
+
+    @Override
     protected void initViewsAndEvents() {
         mBinding.etEmail.addTextChangedListener(new TextWatcher() {
             @Override
@@ -34,10 +45,10 @@ public class TextInputActivity extends BaseActivity<ActivityTextInputBinding> {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!RegexUtils.isEmail(s)){
+                if (!RegexUtils.isEmail(s)) {
                     mBinding.textinputlayoutEmail.setError("邮箱格式错误");
                     mBinding.textinputlayoutEmail.setErrorEnabled(true);
-                }else {
+                } else {
                     mBinding.textinputlayoutEmail.setErrorEnabled(false);
                 }
             }
@@ -47,6 +58,17 @@ public class TextInputActivity extends BaseActivity<ActivityTextInputBinding> {
 
             }
         });
+
+        // 添加 tab item
+        mBinding.tab.addTab(mBinding.tab.newTab().setText("TAB1"));
+        mBinding.tab.addTab(mBinding.tab.newTab().setText("TAB2"));
+        mBinding.tab.addTab(mBinding.tab.newTab().setText("TAB3"));
+        mBinding.tab.addTab(mBinding.tab.newTab().setText("TAB4"));
+
+        mBinding.setClick1(c->{
+            mBinding.drawer.openDrawer(Gravity.LEFT);
+        });
+
     }
 
     @Override
