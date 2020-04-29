@@ -50,6 +50,9 @@ public class TestSnackbarUtilsActivity extends
                 snackbar.show();
             }
         );
+        mBinding.setClick6(c->{
+            SbUtil.showCustomBOTTOM(mBinding.coordinator, "This is a bottom snack!");
+        });
     }
 
     @Override

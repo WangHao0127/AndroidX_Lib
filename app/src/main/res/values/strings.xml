@@ -36,4 +36,56 @@
     <string name="multimethods">同时使用多种方法</string>
     <string name="crazybutton">疯狂测试!!!</string>
     <string name="memoryleak">尝试内存泄漏</string>
+
+    <string name="textContent">要实现这样的效果, 需要用到:
+CoordinatorLayout和AppbarLayout的配合, 以及实现了NestedScrollView的布局或控件.
+AppbarLayout是一种支持响应滚动手势的app bar布局, CollapsingToolbarLayout则是专门用来实现子布局内不同元素响应滚动细节的布局.
+与AppbarLayout组合的滚动布局(RecyclerView, NestedScrollView等),需要设置 app:layout_behavior = "@string/appbar_scrolling_view_behavior" .没有设置的话, AppbarLayout将不会响应滚动布局的滚动事件.
+
+我们回到再前面一章"Toolbar的使用", 将布局改动如下:
+
+作者：朋朋彭哥
+链接：https://www.jianshu.com/p/bbc703a0015e
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。要实现这样的效果, 需要用到:
+CoordinatorLayout和AppbarLayout的配合, 以及实现了NestedScrollView的布局或控件.
+AppbarLayout是一种支持响应滚动手势的app bar布局, CollapsingToolbarLayout则是专门用来实现子布局内不同元素响应滚动细节的布局.
+与AppbarLayout组合的滚动布局(RecyclerView, NestedScrollView等),需要设置 app:layout_behavior = "@string/appbar_scrolling_view_behavior" .没有设置的话, AppbarLayout将不会响应滚动布局的滚动事件.
+
+我们回到再前面一章"Toolbar的使用", 将布局改动如下:
+
+作者：朋朋彭哥
+链接：https://www.jianshu.com/p/bbc703a0015e
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。要实现这样的效果, 需要用到:
+CoordinatorLayout和AppbarLayout的配合, 以及实现了NestedScrollView的布局或控件.
+AppbarLayout是一种支持响应滚动手势的app bar布局, CollapsingToolbarLayout则是专门用来实现子布局内不同元素响应滚动细节的布局.
+与AppbarLayout组合的滚动布局(RecyclerView, NestedScrollView等),需要设置 app:layout_behavior = "@string/appbar_scrolling_view_behavior" .没有设置的话, AppbarLayout将不会响应滚动布局的滚动事件.
+
+我们回到再前面一章"Toolbar的使用", 将布局改动如下:
+
+作者：朋朋彭哥
+链接：https://www.jianshu.com/p/bbc703a0015e
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。要实现这样的效果, 需要用到:
+CoordinatorLayout和AppbarLayout的配合, 以及实现了NestedScrollView的布局或控件.
+AppbarLayout是一种支持响应滚动手势的app bar布局, CollapsingToolbarLayout则是专门用来实现子布局内不同元素响应滚动细节的布局.
+与AppbarLayout组合的滚动布局(RecyclerView, NestedScrollView等),需要设置 app:layout_behavior = "@string/appbar_scrolling_view_behavior" .没有设置的话, AppbarLayout将不会响应滚动布局的滚动事件.
+
+我们回到再前面一章"Toolbar的使用", 将布局改动如下:
+
+作者：朋朋彭哥
+链接：https://www.jianshu.com/p/bbc703a0015e
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。要实现这样的效果, 需要用到:
+CoordinatorLayout和AppbarLayout的配合, 以及实现了NestedScrollView的布局或控件.
+AppbarLayout是一种支持响应滚动手势的app bar布局, CollapsingToolbarLayout则是专门用来实现子布局内不同元素响应滚动细节的布局.
+与AppbarLayout组合的滚动布局(RecyclerView, NestedScrollView等),需要设置 app:layout_behavior = "@string/appbar_scrolling_view_behavior" .没有设置的话, AppbarLayout将不会响应滚动布局的滚动事件.
+
+我们回到再前面一章"Toolbar的使用", 将布局改动如下:
+
+作者：朋朋彭哥
+链接：https://www.jianshu.com/p/bbc703a0015e
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</string>
 </resources>

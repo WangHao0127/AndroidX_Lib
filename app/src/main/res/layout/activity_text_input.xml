@@ -75,9 +75,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{click1}"
+                android:textAllCaps="false"
                 android:text="DrawerLayout打开" />
 
         </LinearLayout>
+
+
 
         <include layout="@layout/drawer_left" />
     </androidx.drawerlayout.widget.DrawerLayout>

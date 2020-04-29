@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
-    <data
-        >
+    <data>
         <variable
             name="click1"
             type="android.view.View.OnClickListener" />
@@ -20,6 +19,9 @@
             type="android.view.View.OnClickListener" />
         <variable
             name="click5"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="click6"
             type="android.view.View.OnClickListener" />
     </data>
 
@@ -44,6 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="@{click1}"
+                android:textAllCaps="false"
                 android:text="show top snack" />
 
             <Button
@@ -52,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/button2"
                 android:onClick="@{click2}"
+                android:textAllCaps="false"
                 android:layout_gravity="bottom"
                 app:layout_anchor="@id/button"
                 app:layout_anchorGravity="bottom"
@@ -64,6 +68,7 @@
                 android:id="@+id/button3"
                 android:layout_gravity="bottom"
                 android:onClick="@{click3}"
+                android:textAllCaps="false"
                 app:layout_anchor="@id/button2"
                 app:layout_anchorGravity="bottom"
                 />
@@ -76,6 +81,7 @@
                 app:layout_anchor="@id/button3"
                 app:layout_anchorGravity="bottom"
                 android:id="@+id/button4"
+                android:textAllCaps="false"
                 android:onClick="@{click4}"/>
 
             <Button
@@ -86,8 +92,22 @@
                 app:layout_anchor="@id/button4"
                 app:layout_anchorGravity="bottom"
                 android:id="@+id/button5"
+                android:textAllCaps="false"
                 android:onClick="@{click5}"/>
 
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:elevation="6dp"
+                app:pressedTranslationZ="12dp"
+                app:backgroundTint="@color/cardview_dark_background"
+                app:rippleColor="@color/design_default_color_primary"
+                app:fabSize="auto"
+                android:onClick="@{click6}"
+                />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </LinearLayout>

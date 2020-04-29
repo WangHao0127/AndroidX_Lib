@@ -21,6 +21,7 @@ public class DesignSupportActivity extends BaseActivity<ActivityDesignSupportBin
     protected void initViewsAndEvents() {
             mBinding.setClick1(c-> go(TestSnackbarUtilsActivity.class));
             mBinding.setClick2(c->go(TextInputActivity.class));
+            mBinding.setClick3(c->go(AppbarLayoutActivity.class));
     }
 
     @Override
