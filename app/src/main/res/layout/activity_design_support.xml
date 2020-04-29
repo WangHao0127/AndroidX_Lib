@@ -2,15 +2,19 @@
 <layout>
 
     <data>
+        <import type="android.view.View.OnClickListener"/>
         <variable
             name="click1"
-            type="android.view.View.OnClickListener" />
+            type="OnClickListener" />
         <variable
             name="click2"
-            type="android.view.View.OnClickListener" />
+            type="OnClickListener" />
         <variable
             name="click3"
-            type="android.view.View.OnClickListener" />
+            type="OnClickListener" />
+        <variable
+            name="click4"
+            type="OnClickListener" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -42,6 +46,14 @@
             android:onClick="@{click3}"
             android:textAllCaps="false"
             android:text="AppbarLayout的使用" />
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{click4}"
+            android:textAllCaps="false"
+            android:text="Toolbar的使用" />
+
     </LinearLayout>
 
 </layout>

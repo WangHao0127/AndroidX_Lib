@@ -2,7 +2,10 @@
 <layout>
 
     <data>
-
+        <import type="android.view.View.OnClickListener"/>
+        <variable
+            name="click"
+            type="OnClickListener" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,6 +32,7 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/test"
+                    android:onClick="@{click}"
                     app:layout_collapseMode="parallax" />
 
                 <androidx.appcompat.widget.Toolbar
@@ -65,5 +69,24 @@
             app:layout_anchorGravity="bottom|end"
             app:pressedTranslationZ="16dp"
             app:rippleColor="@android:color/white" />
+
+        <LinearLayout
+            android:id="@+id/design_bottom_sheet1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:orientation="vertical"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="300dp"
+            app:elevation="6dp"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@mipmap/ic_launcher" />
+        </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
