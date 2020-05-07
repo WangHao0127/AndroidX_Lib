@@ -112,7 +112,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         if (isBindEventBusHere()) {
             EventBus.getDefault().unregister(this);
         }
-        ActivityUtils.finishAllActivities();
         super.onDestroy();
     }
 

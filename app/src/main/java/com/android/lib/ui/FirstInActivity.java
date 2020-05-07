@@ -25,6 +25,7 @@ public class FirstInActivity extends BaseActivity<ActivityFristInBinding> {
         );
         mBinding.setOnClick2(c ->
             go(DesignSupportActivity.class));
+        mBinding.setOnClick3(c->go(ConstraintActivity.class));
     }
 
 }

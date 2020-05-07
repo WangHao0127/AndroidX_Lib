@@ -25,6 +25,16 @@
         android:orientation="vertical"
         tools:context="com.android.lib.ui.DesignSupportActivity">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorWhite"
+            app:navigationIcon="@drawable/icon_back"
+            app:title="标题"
+            app:titleTextColor="@color/colorBlack"
+            />
+
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"

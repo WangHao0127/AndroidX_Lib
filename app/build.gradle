@@ -123,8 +123,8 @@ android {
         flavor.manifestPlaceholders = [APP_CHANNEL_VALUE: name]
     }
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility = configs.sourceCompatibility
+        targetCompatibility = configs.targetCompatibility
     }
     lintOptions {
         checkReleaseBuilds false
@@ -136,8 +136,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':baselib')
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
     testImplementation tests.junit
     androidTestImplementation tests.test_junit
     testImplementation tests.mockito_core
