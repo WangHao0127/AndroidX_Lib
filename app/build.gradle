@@ -80,11 +80,10 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-project.txt'
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            proguardFiles fileTree(dir: '../proguards', include: ['*.pro']).asList().toArray()
+            minifyEnabled true//开启混淆
+            zipAlignEnabled true  //压缩优化
+            shrinkResources true //移出无用资源
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             signingConfig signingConfigs.release
             matchingFallbacks = ['release']
