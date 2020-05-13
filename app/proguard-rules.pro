@@ -21,8 +21,8 @@
 #-renamesourcefileattribute SourceFile
 
 #需要解决的问题
-# 主项目与module的混淆，及其规则
-# debug与release的签名
+# 主项目与module的混淆，及其规则(https://blog.csdn.net/yuzhiqiang_1993/article/details/80676170)
+# debug与release的签名 (https://www.jianshu.com/p/926b4c554e3e)
 # dataBinding的实际应用
 # ViewModel 与 LiveData的实际应用,并且结合dataBinding实现ui数据绑定与刷新
 # RxJava,RxAndroid掌握用法
