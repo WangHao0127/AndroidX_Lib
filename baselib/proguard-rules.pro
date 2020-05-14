@@ -21,8 +21,8 @@
 #-renamesourcefileattribute SourceFile
 
 #万能工具类 混淆#
--keepclasscom.blankj.utilcode.** { *;}
--keepclassmembersclasscom.blankj.utilcode.** { *;}
+-keep class com.blankj.utilcode.** { *;}
+-keepclassmembers class com.blankj.utilcode.** { *;}
 -dontwarn com.blankj.utilcode.**
 
 #EventBus 3.0 官方的混淆配置#

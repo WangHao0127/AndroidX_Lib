@@ -49,7 +49,7 @@ android {
         release {
             storeFile file("../keystore/library.keystore")
             storePassword "123456"
-            keyAlias "library"
+            keyAlias "forever"
             keyPassword "123456"
         }
     }
