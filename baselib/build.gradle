@@ -48,15 +48,13 @@ dependencies {
 
     testImplementation tests.junit
     androidTestImplementation tests.test_junit
-    testImplementation tests.mockito_core
-    androidTestImplementation tests.mockito_android
-    testImplementation tests.robolectric
 
     api constraints.constraintlayout
 
     api supportDependencies.multidex
     api supportDependencies.appcompat
     api supportDependencies.design
+    api supportDependencies.lifecycle
 
     api thirdPartyDependencies.immersionbar
     api thirdPartyDependencies.immersionbar_components
@@ -64,7 +62,5 @@ dependencies {
     api thirdPartyDependencies.utilcode
     debugApi thirdPartyDependencies.leakcanary
     releaseApi thirdPartyDependencies.leakcanary_no_op
-
-    api netDependencies.lifecycle
 
 }

@@ -104,10 +104,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':baselib')
 
-
     testImplementation tests.junit
     androidTestImplementation tests.test_junit
-    testImplementation tests.mockito_core
-    androidTestImplementation tests.mockito_android
-    testImplementation tests.robolectric
 }

@@ -6,9 +6,12 @@ import com.android.baselib.ui.BaseActivity;
 import com.android.baselib.util.VMUtils;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityMainBinding;
+import com.android.lib.observer.MyLifeCycleObserver;
 import com.android.lib.viewmodel.MainViewModel;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.Lifecycle;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
@@ -31,6 +34,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         mBinding.setMainData(mModel);
         //让xml内绑定的LiveData和Observer建立连接，数据改变，UI自动会更新
         mBinding.setLifecycleOwner(this);
+
+        //LifeCycle
+        getLifecycle().addObserver(new MyLifeCycleObserver());
     }
 
     private void databindingDemo() {
@@ -45,6 +51,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 //            observableUser.name.set("王浩2");
             mModel.queryWeather(mBinding.edit.getText().toString());
         });
+        
     }
 
     @Override
