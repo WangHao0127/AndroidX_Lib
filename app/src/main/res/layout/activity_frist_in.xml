@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{onClick3}"
-            android:text="WebView的交互"
+            android:text="constraint布局"
             android:textAllCaps="false" />
     </LinearLayout>
 </layout>
