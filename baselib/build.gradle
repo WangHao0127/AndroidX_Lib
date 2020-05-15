@@ -55,6 +55,7 @@ dependencies {
     api supportDependencies.appcompat
     api supportDependencies.design
     api supportDependencies.lifecycle
+    api supportDependencies.workmanager
 
     api thirdPartyDependencies.immersionbar
     api thirdPartyDependencies.immersionbar_components
@@ -63,4 +64,5 @@ dependencies {
     debugApi thirdPartyDependencies.leakcanary
     releaseApi thirdPartyDependencies.leakcanary_no_op
 
+    api netDependencies.lifecycle
 }

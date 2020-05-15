@@ -24,7 +24,8 @@ ext {
             multidex : "androidx.multidex:multidex:2.0.1",
             appcompat: "androidx.appcompat:appcompat:1.1.0",
             design   : "com.google.android.material:material:1.2.0-alpha06",
-            lifecycle: "android.arch.lifecycle:common-java8:2.0.0" //为了可用DefaultLifecycleObserver
+            lifecycle: "android.arch.lifecycle:common-java8:2.0.0", //为了可用DefaultLifecycleObserver
+            workmanager:"androidx.work:work-runtime:2.2.0"
     ]
 
     // Support Constraints
@@ -43,7 +44,7 @@ ext {
 
     netDependencies = [
             //ViewModel与LiveData
-//            lifecycle: "androidx.lifecycle:lifecycle-extensions:2.2.0",
+            lifecycle: "androidx.lifecycle:lifecycle-extensions:2.2.0",
 
     ]
 
