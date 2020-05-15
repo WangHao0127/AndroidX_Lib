@@ -12,6 +12,26 @@ public class User {
     private final int age;
     private final String mPhoneNo;
 
+    public String getFirstName() {
+        return mFirstName;
+    }
+
+    public String getLastName() {
+        return mLastName;
+    }
+
+    public String getGender() {
+        return mGender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getPhoneNo() {
+        return mPhoneNo;
+    }
+
     private User(Builder builder) {
         mFirstName = builder.mFirstName;
         mLastName = builder.mLastName;

@@ -26,8 +26,8 @@ public class FirstInActivity extends BaseActivity<ActivityFristInBinding> {
         );
         mBinding.setOnClick2(c ->
             go(DesignSupportActivity.class));
-        mBinding.setOnClick3(c->go(ConstraintActivity.class));
-
+        mBinding.setOnClick3(c -> go(ConstraintActivity.class));
+        mBinding.setOnClick4(c -> go(PageListActivity.class));
 
         new User.Builder()
             .mFirstName("")

@@ -26,7 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".ui.ConstraintActivity"></activity>
+        <activity android:name=".ui.PageListActivity"></activity>
+        <activity android:name=".ui.ConstraintActivity" />
         <activity android:name=".ui.AppbarLayoutActivity" />
         <activity android:name=".ui.TextInputActivity" />
         <activity android:name=".ui.DesignSupportActivity" />

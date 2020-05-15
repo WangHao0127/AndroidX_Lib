@@ -28,7 +28,7 @@
 # RxJava,RxAndroid掌握用法
 # Dagger2看看需要集成不
 # 【mvvm+dagger2+rxjava2+mvvm+databinding +LifeCycle  +Paging +workManager】 AAC架构
-#
+#  [Paging:http://littlecurl.xyz:8080/articles/2020/01/12/1578831362377.html]
 #
 #
 

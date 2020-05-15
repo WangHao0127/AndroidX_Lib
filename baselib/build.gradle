@@ -6,6 +6,7 @@ def netDependencies = rootProject.ext.netDependencies
 def supportDependencies = rootProject.ext.supportDependencies
 def tests = rootProject.ext.tests
 def constraints = rootProject.ext.constraints
+def jetPack = rootProject.ext.jetPack
 
 buildscript {
     repositories {
@@ -50,6 +51,8 @@ dependencies {
     androidTestImplementation tests.test_junit
 
     api constraints.constraintlayout
+
+    api jetPack.paging
 
     api supportDependencies.multidex
     api supportDependencies.appcompat
