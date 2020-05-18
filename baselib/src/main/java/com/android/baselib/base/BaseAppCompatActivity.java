@@ -14,6 +14,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.AndroidViewModel;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.blankj.utilcode.util.ScreenUtils;
@@ -55,7 +56,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        createBinding();
+        getDataBinding();
 
         /*getBundleExtras*/
         Bundle extras = getIntent().getExtras();
@@ -80,6 +81,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
             setCustomTitle(getTitle());
             onNavigateClick();
         }
+        initViewModel();
         initViewModelEvent();
         initViewsAndEvents();
     }
@@ -237,9 +239,13 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         }
     }
 
+    protected abstract void initViewModel();
+
     protected abstract void initViewModelEvent();
 
-    protected abstract void createBinding();
+    protected abstract void getDataBinding();
+
+    protected abstract Class<? extends AndroidViewModel> getViewModel();
 
     protected abstract void eventBusSend(EventBusData data);
 

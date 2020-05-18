@@ -26,11 +26,17 @@ import android.widget.TextView;
 import com.android.baselib.ui.BaseActivity;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityPageListBinding;
+import com.android.lib.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PageListActivity extends BaseActivity<ActivityPageListBinding> {
+public class PageListActivity extends BaseActivity<ActivityPageListBinding,MainViewModel> {
+
+    @Override
+    protected Class<? extends AndroidViewModel> getViewModel() {
+        return null;
+    }
 
     @Override
     protected int getLayoutId() {
@@ -165,8 +171,4 @@ public class PageListActivity extends BaseActivity<ActivityPageListBinding> {
         }
     }
 
-    @Override
-    protected AndroidViewModel initViewModel() {
-        return null;
-    }
 }

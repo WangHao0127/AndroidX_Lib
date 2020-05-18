@@ -14,6 +14,7 @@ import android.widget.TableLayout;
 import com.android.baselib.ui.BaseActivity;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityTextInputBinding;
+import com.android.lib.viewmodel.MainViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,12 @@ import java.util.List;
  * Created On: 2020/04/27  16:16
  * Description: TextInputLayout 的使用
  */
-public class TextInputActivity extends BaseActivity<ActivityTextInputBinding> {
+public class TextInputActivity extends BaseActivity<ActivityTextInputBinding, MainViewModel> {
+
+    @Override
+    protected Class<? extends AndroidViewModel> getViewModel() {
+        return null;
+    }
 
     @Override
     protected int getLayoutId() {
@@ -65,14 +71,10 @@ public class TextInputActivity extends BaseActivity<ActivityTextInputBinding> {
         mBinding.tab.addTab(mBinding.tab.newTab().setText("TAB3"));
         mBinding.tab.addTab(mBinding.tab.newTab().setText("TAB4"));
 
-        mBinding.setClick1(c->{
+        mBinding.setClick1(c -> {
             mBinding.drawer.openDrawer(Gravity.LEFT);
         });
 
     }
 
-    @Override
-    protected AndroidViewModel initViewModel() {
-        return null;
-    }
 }

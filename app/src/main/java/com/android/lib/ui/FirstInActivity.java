@@ -4,13 +4,14 @@ import com.android.baselib.ui.BaseActivity;
 import com.android.lib.R;
 import com.android.lib.data.User;
 import com.android.lib.databinding.ActivityFristInBinding;
+import com.android.lib.viewmodel.MainViewModel;
 
 import androidx.lifecycle.AndroidViewModel;
 
-public class FirstInActivity extends BaseActivity<ActivityFristInBinding> {
+public class FirstInActivity extends BaseActivity<ActivityFristInBinding,MainViewModel> {
 
     @Override
-    protected AndroidViewModel initViewModel() {
+    protected Class<? extends AndroidViewModel> getViewModel() {
         return null;
     }
 

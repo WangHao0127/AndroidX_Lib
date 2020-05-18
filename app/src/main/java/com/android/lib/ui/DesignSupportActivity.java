@@ -5,6 +5,7 @@ import android.view.View;
 import com.android.baselib.ui.BaseActivity;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityDesignSupportBinding;
+import com.android.lib.viewmodel.MainViewModel;
 
 import androidx.lifecycle.AndroidViewModel;
 /**
@@ -12,7 +13,12 @@ import androidx.lifecycle.AndroidViewModel;
  * Created On: 2020/04/27  16:16
  * Description: Design Support 的导航页
  */
-public class DesignSupportActivity extends BaseActivity<ActivityDesignSupportBinding> {
+public class DesignSupportActivity extends BaseActivity<ActivityDesignSupportBinding,MainViewModel> {
+
+    @Override
+    protected Class<? extends AndroidViewModel> getViewModel() {
+        return MainViewModel.class;
+    }
 
     @Override
     protected int getLayoutId() {
@@ -26,11 +32,6 @@ public class DesignSupportActivity extends BaseActivity<ActivityDesignSupportBin
             mBinding.setClick1(c-> go(TestSnackbarUtilsActivity.class));
             mBinding.setClick2(c->go(TextInputActivity.class));
             mBinding.setClick3(c->go(AppbarLayoutActivity.class));
-    }
-
-    @Override
-    protected AndroidViewModel initViewModel() {
-        return null;
     }
 
 }

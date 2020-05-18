@@ -23,9 +23,7 @@ import androidx.work.WorkManager;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 
-public class MainActivity extends BaseActivity<ActivityMainBinding> {
-
-    MainViewModel mModel;
+public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewModel> {
 
     @Override
     protected int getLayoutId() {
@@ -44,15 +42,15 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
      */
     private void workManagerDemo() {
         //constraints设置任务触发条件
-        Constraints constraints =new Constraints.Builder()
+        Constraints constraints = new Constraints.Builder()
             .setRequiresCharging(true)
             .setRequiresStorageNotLow(true)
             .setRequiresBatteryNotLow(true)
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build();
 
-        Data data =new Data.Builder().putString("input_data","王浩你哈").build();
-        OneTimeWorkRequest request=new OneTimeWorkRequest.Builder(UploadWorker.class)
+        Data data = new Data.Builder().putString("input_data", "王浩你哈").build();
+        OneTimeWorkRequest request = new OneTimeWorkRequest.Builder(UploadWorker.class)
             .setConstraints(constraints)
             .setInputData(data)
             .build();
@@ -61,9 +59,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
         WorkManager.getInstance(this).getWorkInfoByIdLiveData(request.getId()).observe(
             MainActivity.this, workInfo -> {
-                if (workInfo!=null && workInfo.getState() == WorkInfo.State.SUCCEEDED){
+                if (workInfo != null && workInfo.getState() == WorkInfo.State.SUCCEEDED) {
                     ToastUtils.showShort(workInfo.getOutputData().getString("output_data"));
-                    LogUtils.e("onChanged-->",workInfo.getOutputData().getString("output_data"));
+                    LogUtils.e("onChanged-->", workInfo.getOutputData().getString("output_data"));
                 }
             });
     }
@@ -71,7 +69,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     private void viewModelDemo() {
 
         //将ViewModel与DataBinding绑定
-        mBinding.setMainData(mModel);
+        mBinding.setMainData(mViewModel);
         //让xml内绑定的LiveData和Observer建立连接，数据改变，UI自动会更新
         mBinding.setLifecycleOwner(this);
 
@@ -80,25 +78,22 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     }
 
     private void databindingDemo() {
-        AppBarData barData =new AppBarData("首页","",R.drawable.icon_back);
-        mBinding.setVariable(BR.appBar,barData);
+        AppBarData barData = new AppBarData("首页", "", R.drawable.icon_back);
+        mBinding.setVariable(BR.appBar, barData);
 
-        mBinding.setClick1(v -> mModel.getUserData());
+        mBinding.setClick1(v -> mViewModel.getUserData());
 
-        mBinding.setClick2(v->{
-//            ObservableUser observableUser =new ObservableUser("","");
-//            observableUser.like.set("我喜欢打篮球2");
-//            observableUser.name.set("王浩2");
-            mModel.queryWeather(mBinding.edit.getText().toString());
+        mBinding.setClick2(v -> {
+            //            ObservableUser observableUser =new ObservableUser("","");
+            //            observableUser.like.set("我喜欢打篮球2");
+            //            observableUser.name.set("王浩2");
+            mViewModel.queryWeather(mBinding.edit.getText().toString());
         });
-        
+
     }
 
     @Override
-    protected AndroidViewModel initViewModel() {
-        mModel= (MainViewModel) VMUtils.obtainViewModel(this,MainViewModel.class);
-        return null;
+    protected Class<? extends AndroidViewModel> getViewModel() {
+        return MainViewModel.class;
     }
-
-
 }

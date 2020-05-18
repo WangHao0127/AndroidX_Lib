@@ -10,6 +10,7 @@ import com.android.baselib.base.BaseAppCompatActivity;
 import com.android.baselib.base.BaseLibApplication;
 import com.android.baselib.data.EventBusData;
 import com.android.baselib.event.BaseActionEvent;
+import com.android.baselib.util.VMUtils;
 import com.android.baselib.viewmodel.IViewModelAction;
 
 import org.greenrobot.eventbus.EventBus;
@@ -24,25 +25,28 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.squareup.leakcanary.RefWatcher;
 
 /**
- * @author: WangHao
- * Created On: 2020/04/08  14:22
- * Description:
+ *
  */
-public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCompatActivity {
+public abstract class BaseActivity<T extends ViewDataBinding,V extends AndroidViewModel> extends
+    BaseAppCompatActivity {
 
     protected Dialog loadingPop;
 
     protected T mBinding;
+    protected V mViewModel;
 
     @Override
-    protected void createBinding() {
+    protected void getDataBinding() {
         mBinding = DataBindingUtil.setContentView(this, getLayoutId());
     }
 
-    protected abstract AndroidViewModel initViewModel();
-
     protected List<AndroidViewModel> initViewModelList() {
         return null;
+    }
+
+    @Override
+    protected void initViewModel() {
+        mViewModel = (V)VMUtils.obtainViewModel(this, getViewModel());
     }
 
     @Override
@@ -51,7 +55,7 @@ public abstract class BaseActivity<T extends ViewDataBinding> extends BaseAppCom
         if (viewModelList != null && viewModelList.size() > 0) {
             observeEvent(viewModelList);
         } else {
-            AndroidViewModel model = initViewModel();
+            AndroidViewModel model = mViewModel;
             if (model != null) {
                 List<AndroidViewModel> modelList = new ArrayList<>();
                 modelList.add(model);

@@ -12,17 +12,23 @@ import android.view.View;
 import com.android.baselib.ui.BaseActivity;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityAppbarLayoutBinding;
+import com.android.lib.viewmodel.MainViewModel;
 
 /**
  * Author: WangHao
  * Created On: 2020/04/29  13:34
  * Description: AppbarLayout 的使用
  */
-public class AppbarLayoutActivity extends BaseActivity<ActivityAppbarLayoutBinding> {
+public class AppbarLayoutActivity extends BaseActivity<ActivityAppbarLayoutBinding,MainViewModel> {
 
     @Override
     protected boolean isStatusBarOverlap() {
         return true;
+    }
+
+    @Override
+    protected Class<? extends AndroidViewModel> getViewModel() {
+        return null;
     }
 
     @Override
@@ -54,10 +60,5 @@ public class AppbarLayoutActivity extends BaseActivity<ActivityAppbarLayoutBindi
                 ToastUtils.showShort("onSlide");
             }
         });
-    }
-
-    @Override
-    protected AndroidViewModel initViewModel() {
-        return null;
     }
 }

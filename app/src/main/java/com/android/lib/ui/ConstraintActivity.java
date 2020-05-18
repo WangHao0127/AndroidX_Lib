@@ -3,10 +3,16 @@ package com.android.lib.ui;
 import com.android.baselib.ui.BaseActivity;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityConstraintBinding;
+import com.android.lib.viewmodel.MainViewModel;
 
 import androidx.lifecycle.AndroidViewModel;
 
-public class ConstraintActivity extends BaseActivity<ActivityConstraintBinding> {
+public class ConstraintActivity extends BaseActivity<ActivityConstraintBinding,MainViewModel> {
+
+    @Override
+    protected Class<? extends AndroidViewModel> getViewModel() {
+        return null;
+    }
 
     @Override
     protected int getLayoutId() {
@@ -18,8 +24,4 @@ public class ConstraintActivity extends BaseActivity<ActivityConstraintBinding> 
 
     }
 
-    @Override
-    protected AndroidViewModel initViewModel() {
-        return null;
-    }
 }

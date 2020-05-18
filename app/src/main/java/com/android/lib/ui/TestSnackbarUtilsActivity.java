@@ -8,6 +8,7 @@ import com.android.baselib.util.SbUtil;
 import com.android.baselib.weight.snackbar.TBSnackbar;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityTestSnackbarUtilsBinding;
+import com.android.lib.viewmodel.MainViewModel;
 
 import androidx.lifecycle.AndroidViewModel;
 /**
@@ -16,7 +17,12 @@ import androidx.lifecycle.AndroidViewModel;
  * Description: Snackbar 的使用
  */
 public class TestSnackbarUtilsActivity extends
-    BaseActivity<ActivityTestSnackbarUtilsBinding> {
+    BaseActivity<ActivityTestSnackbarUtilsBinding,MainViewModel> {
+
+    @Override
+    protected Class<? extends AndroidViewModel> getViewModel() {
+        return null;
+    }
 
     @Override
     protected int getLayoutId() {
@@ -55,8 +61,5 @@ public class TestSnackbarUtilsActivity extends
         });
     }
 
-    @Override
-    protected AndroidViewModel initViewModel() {
-        return null;
-    }
+
 }
