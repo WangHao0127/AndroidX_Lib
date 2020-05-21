@@ -2,8 +2,11 @@ package com.android.baselib.util;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.SavedStateHandle;
+import androidx.lifecycle.SavedStateViewModelFactory;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.savedstate.SavedStateRegistryOwner;
 
 /**
  * Author: WangHao
@@ -24,5 +27,13 @@ public class VMUtils {
             return null;
         }
         return new ViewModelProvider(fragment).get(clazz);
+    }
+
+    public static ViewModel obtainViewModelHandler(FragmentActivity activity, Class clazz,
+        SavedStateRegistryOwner owner) {
+        if (clazz==null){
+            return null;
+        }
+        return new ViewModelProvider(activity,new SavedStateViewModelFactory(activity.getApplication(),owner)).get(clazz);
     }
 }

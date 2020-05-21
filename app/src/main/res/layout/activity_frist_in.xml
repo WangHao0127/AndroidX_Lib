@@ -18,6 +18,12 @@
         <variable
             name="onClick4"
             type="OnClickListener" />
+        <variable
+            name="onClick5"
+            type="OnClickListener" />
+        <variable
+            name="onClick6"
+            type="OnClickListener" />
     </data>
 
     <LinearLayout
@@ -58,6 +64,20 @@
             android:layout_height="wrap_content"
             android:onClick="@{onClick4}"
             android:text="PageList,Paging的应用"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClick5}"
+            android:text="Navigation的应用"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{onClick6}"
+            android:text="room的应用"
             android:textAllCaps="false" />
     </LinearLayout>
 </layout>

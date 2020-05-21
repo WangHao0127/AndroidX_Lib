@@ -3,17 +3,13 @@ package com.android.lib.ui;
 import com.android.baselib.BR;
 import com.android.baselib.data.AppBarData;
 import com.android.baselib.ui.BaseActivity;
-import com.android.baselib.util.VMUtils;
 import com.android.lib.R;
 import com.android.lib.databinding.ActivityMainBinding;
 import com.android.lib.observer.MyLifeCycleObserver;
 import com.android.lib.observer.UploadWorker;
 import com.android.lib.viewmodel.MainViewModel;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.Observer;
 import androidx.work.Constraints;
 import androidx.work.Data;
 import androidx.work.NetworkType;
@@ -35,6 +31,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewModel
         databindingDemo();
         viewModelDemo();
         workManagerDemo();
+
     }
 
     /**

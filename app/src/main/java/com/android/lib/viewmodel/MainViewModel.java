@@ -8,6 +8,7 @@ import com.android.lib.data.Weather;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.SavedStateHandle;
 
 /**
  * Author: WangHao
@@ -35,8 +36,7 @@ public class MainViewModel extends BaseViewModel {
         users.setValue(observableUser);
     }
 
-
-    public void queryWeather(String cityName){
+    public void queryWeather(String cityName) {
         //网络请求
     }
 

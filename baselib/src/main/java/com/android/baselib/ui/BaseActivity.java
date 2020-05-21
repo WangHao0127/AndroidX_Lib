@@ -46,6 +46,7 @@ public abstract class BaseActivity<T extends ViewDataBinding,V extends AndroidVi
 
     @Override
     protected void initViewModel() {
+//        mViewModel= (V)VMUtils.obtainViewModelHandler(this,getViewModel(),this);
         mViewModel = (V)VMUtils.obtainViewModel(this, getViewModel());
     }
 

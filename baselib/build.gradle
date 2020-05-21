@@ -53,6 +53,9 @@ dependencies {
     api constraints.constraintlayout
 
     api jetPack.paging
+    api jetPack.navigation_fragment
+    api jetPack.navigation_ui
+    api jetPack.room_runtime
 
     api supportDependencies.multidex
     api supportDependencies.appcompat

@@ -28,8 +28,17 @@ ext {
             workmanager: "androidx.work:work-runtime:2.3.4"
     ]
 
+    def room_version = "2.2.5"
+    def navigation_version = "2.2.2"
     jetPack = [
-            paging: "android.arch.paging:runtime:1.0.1"
+            //分页加载
+            paging             : "android.arch.paging:runtime:1.0.1",
+            //Navigation
+            navigation_fragment: "androidx.navigation:navigation-fragment:$navigation_version",
+            navigation_ui      : "androidx.navigation:navigation-ui:$navigation_version",
+            //room
+            room_runtime       : "androidx.room:room-runtime:$room_version",
+            room_compiler      : "androidx.room:room-compiler:$room_version"
     ]
     // Support Constraints
     constraints = [

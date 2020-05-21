@@ -8,7 +8,7 @@ import com.android.lib.viewmodel.MainViewModel;
 
 import androidx.lifecycle.AndroidViewModel;
 
-public class FirstInActivity extends BaseActivity<ActivityFristInBinding,MainViewModel> {
+public class FirstInActivity extends BaseActivity<ActivityFristInBinding, MainViewModel> {
 
     @Override
     protected Class<? extends AndroidViewModel> getViewModel() {
@@ -29,7 +29,8 @@ public class FirstInActivity extends BaseActivity<ActivityFristInBinding,MainVie
             go(DesignSupportActivity.class));
         mBinding.setOnClick3(c -> go(ConstraintActivity.class));
         mBinding.setOnClick4(c -> go(PageListActivity.class));
-
+        mBinding.setOnClick5(c -> go(FragmentTestActivity.class));
+        mBinding.setOnClick6(c->go(RoomActivity.class));
         new User.Builder()
             .mFirstName("")
             .mLastName("")
